@@ -66,6 +66,8 @@ body{
 .login-container .error {
 	color: red;
 }
+
+
 /* Стили для внутренних CRM/ERP */
 .header-crm{
 	margin-top: 30px;
@@ -235,12 +237,8 @@ body{
 		border-color: #5b4d42;
 }
 .menu-block ul li:active{
-<<<<<<< HEAD
 		border-color: #5b4d42;
 		background-color: #d5d2ca;
-=======
-	border-color: #5b4d42;
->>>>>>> FETCH_HEAD
 }
 .main-content{
 	padding-bottom: 50px;
@@ -332,7 +330,6 @@ body{
 	font-weight: bold;
 	font-size: 20px;
 }
-<<<<<<< HEAD
 .form-card-info{
 	float: left;
 }
@@ -536,162 +533,3 @@ float: left;
 	float: left;
 	margin-left: 3px;
 }
-=======
-<<<<<<< HEAD
-.teryterytery {
-width: 100%;
-float: left;
-=======
-.form-card-info{
-	float: left;
-}
-.form-card-info strong{
-	font-size: 16px;
-}
-.form-card-info input{
-	height: 30px;
-	margin-top: 5px;
-}
-.info-about-client-card{
-	float: left;
-	margin-left: 225px;
-	border: 2px solid #5b4d42;
-	padding: 10px;
-	margin-top: -10px;
-}
-.info-about-client-card strong{
-	color: #ebae08;
-}
-#menu-react-mount{
-	margin-top: 20px;
-}
-.main-title{
-	font-size: 24px;
-	color: white;
-	background-color: #ebae08;
-	display: inline;
-	padding: 5px 14px; 
-}
-input:focus{
-	border-color: #ebae08 !important;
-  -webkit-box-shadow: 0px 0px 13px 0px rgba(235, 174, 8, 0.23) !important;
--moz-box-shadow:    0px 0px 13px 0px rgba(235, 174, 8, 0.23) !important;
-box-shadow:         0px 0px 13px 0px rgba(235, 174, 8, 0.23) !important;
-}
-#order-list{
-	margin-top: 15px;
-	padding-bottom: 5px;
-}
-.order-war{
-	font-weight: bold;
-	margin-left: 10px;
-}
-
-/* Страница клиентов (список и новый клиент) */
-
-.top-client{
-	margin-top: 20px;
-	padding-bottom: 20px;
-	
-}
-.top-client strong{
-	font-size: 18px;
-}
-.top-client a{
-	font-size: 16px;
-	padding: 8px;
-	border: 2px solid #e59b16;
-	color: #e59b16;
-	margin-left: 10px;
-}
-.top-client a:hover{
-	text-decoration: none;
-	border-color: #594b40;
-	color: #594b40;
-}
-.new-client-block{
-	padding-bottom: 20px;
-	margin-top: 30px;
-}
-.new-client-button{
-	background-color: #dfd6c5;
-	padding: 13px 16px;
-	font-size: 15px;
-	color: #5a4c41;
-	font-weight: bold;
-	font-style: normal;
-	cursor: pointer;
-}
-
-.block-border-new-client{
-	border: 4px solid #dfd6c5;
-	margin-top: 8px;
-	padding: 20px;
-	padding-bottom: 0;
-	width: 450px;
-}
-.block-border-new-client table tr td:first-child{
-	width: 180px;
-}
-.block-border-new-client table tr td:first-child label{
-	font-size: 15px;
-	font-weight: bold;
-}
-.block-border-new-client input[type="text"]{
-	height: 30px;
-	width: 250px;
-}
-.block-border-new-client input[type="submit"]{
-		width: 140px;
-	height: 40px;
-	background-color: #dfd6c5;
-	border: none;
-	font-weight: bold;
-	border-bottom: 3px solid #5a4c41;
-	color: #5a4c41;
-	margin-left: 20px;
-	-webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	border-radius: 7px;
-}
-
-.block-border-new-client i{
-	font-style: normal;
-	font-size: 15px;
-	color: #e59b16;
-	font-weight: bold;
-}
-.day-stat{
-	margin-top: 20px;
-}
-.date-picker input[type="date"]{
-	width: 140px;
-	margin-top: 6px;
-}
-.date-picker{
-	float: right;
-	margin-right: 0px;
-}
-.date-picker label{
-	font-weight: bold;
-	float: left;
-	margin-left: 20px;
-}
-.date-picker a:first-child{
-	margin-left: 20px;
-}
-.date-picker a{
-	float: left;
-	margin-top: 6px;
-	border: 2px solid #e59b16;
-	font-size: 16px;
-	padding: 3px 10px;
-	font-weight: bold;
-	color: #e59b16;
-	margin-left: 20px;
-}
-.date-picker a:hover{
-	text-decoration: none;
->>>>>>> front
-}
->>>>>>> FETCH_HEAD

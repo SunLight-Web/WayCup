@@ -37,45 +37,23 @@
 	    			clientsNameDiv = <div>Клиента зовут <strong>{this.state.name}</strong>.</div>
 	    		}
 	    		return (
-<<<<<<< HEAD
                     <div className="menu-info-client">
                     <div className="form-card-info">
 	    				<form id="clientForm" onSubmit={this.submitHandle}>
 	    					<label htmlFor="cardnumInput"><strong>Номер карты:</strong></label>
-=======
-	    		<div className="menu-info-client">
-	    		
-
-	    			<div className="form-card-info">
-	    				<form id="clientForm" onSubmit={this.submitHandle}>
-<<<<<<< HEAD
-	    					<label htmlFor="cardnumInput">Номер карты:</label>
->>>>>>> FETCH_HEAD
                             <input type="number" min="0" onChange={this.onChangeHandle} inputmode="numeric" pattern="[0-9]*" ref='cardnum' maxLength="4"/> <br/>
-=======
-	    					<label htmlFor="cardnumInput"><strong>Номер карты:</strong></label>
-	    					<input type="text" id="cardnumInput" onchange={this.submitHandle} ref='cardnum' maxLength="4"/> <br/>
->>>>>>> front
 	    				</form>
 	    			</div>
 
                     <div className="info-about-client-card">
 	    			{clientsNameDiv}
-
 					Человек купил у нас <strong>{this.state.coffees}</strong> кофе.
 	    			<br/>
 	    			{bonusInfo}
                     </div>
                     <div className="clear"></div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> FETCH_HEAD
 	    			<menuAndOrder cardnum={this.state.cardnum}/>
-                    
-
-
 	    		</div>
 	    		);
 	    	}
@@ -277,55 +255,29 @@
 
             if(!orderElements.length){
                 orderElements = <div className="order-war"><i>Сформируйте заказ</i></div>;
-<<<<<<< HEAD
 
-=======
->>>>>>> FETCH_HEAD
             }
             return (
                 <div>
                     <div className="menu-items">
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-                        <h3>Меню</h3>
-=======
->>>>>>> front
->>>>>>> FETCH_HEAD
                         <ul id="list-of-items-in-stock">
                             {cats}
                         </ul>
                         <div className="clear"></div>
                     </div>
-
                     <div className="order">
                         <h3 className="main-title">Заказ</h3> 
-<<<<<<< HEAD
-=======
-
->>>>>>> FETCH_HEAD
                         <ul id="order-list">
                         	{orderElements}
                             <div className="clear"></div>
                         </ul>
-<<<<<<< HEAD
 
                         <strong>Сумма заказа: {this.state.total.toFixed(2)} ₽</strong>
-=======
-                        
-                        
-                        <strong>Сумма заказа: {this.state.total.toFixed(2)} ₽</strong>
-                        
->>>>>>> FETCH_HEAD
                        <div className="order-buttons">
                         <button onClick={this.kEbenyam}>Очистить заказ</button>
                         <button onClick={this.proceed}>Подтвердить</button>
                        </div>
-<<<<<<< HEAD
-=======
-                       
->>>>>>> FETCH_HEAD
                     </div>
                 </div>
             );

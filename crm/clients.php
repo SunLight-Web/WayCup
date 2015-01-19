@@ -9,10 +9,7 @@
     </div>
 
     <div class="table-client">
-<<<<<<< HEAD
     
-=======
->>>>>>> FETCH_HEAD
 
     <div class="top-client">
     <strong>Топ:</strong> <a href="?page=2&amp;show=10">10</a>
@@ -21,12 +18,8 @@
          <a href="?page=2&amp;show=100">100</a>
          <a href="?page=2&amp;show=1000">1000</a>
     </div>
-<<<<<<< HEAD
 
             <table>
-=======
-           <table>
->>>>>>> FETCH_HEAD
              <thead>
                <td>Номер карты</td>
                <td>ФИО</td>

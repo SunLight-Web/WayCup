@@ -55,11 +55,7 @@ if (isset($_POST['sent'])){
 						<label for="cardnum">Номер карты</label>
 					</td>
 					<td>
-<<<<<<< HEAD
 						<input type="text" required name="cardnum" placeholder="0777"/>
-=======
-						<input type="text" required name="cardnum" placeholder="777"/>
->>>>>>> FETCH_HEAD
 					</td>
 				</tr>
 				<tr>
@@ -111,8 +107,4 @@ if (isset($_POST['sent'])){
 				</tr>
 			</table>
 		</form>
-<<<<<<< HEAD
 	</div>
-=======
-</div>
->>>>>>> FETCH_HEAD
