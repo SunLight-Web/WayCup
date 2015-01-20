@@ -457,6 +457,7 @@ box-shadow:         0px 0px 13px 0px rgba(235, 174, 8, 0.23) !important;
 	margin-top: 6px;
 }
 .date-picker{
+	display: inline;
 	float: right;
 	margin-right: 0px;
 }
@@ -532,4 +533,7 @@ float: left;
 	background-size: 14px 23px;
 	float: left;
 	margin-left: 3px;
+}
+.empty-table {
+	padding-top: 50px;
 }

@@ -40,7 +40,7 @@ $navElements = newElement($navElements, 'dashboard.php',  'icon-th-list',       
 $navElements = newElement($navElements, 'menu.php',       'icon-list-alt',      'Заказ');
 $navElements = newElement($navElements, 'clients.php',    'icon-user',          'Клиенты');
 $navElements = newElement($navElements, 'warehouse.php',  'icon-home',          'Склад');
-$navElements = newElement($navElements, 'sale.php',       'icon-shopping-cart', 'Продажи');
+$navElements = newElement($navElements, 'sales.php',       'icon-shopping-cart', 'Продажи');
 $navElements = newElement($navElements, 'admin.php',      'icon-wrench',        'Админка');
 
 ?>
