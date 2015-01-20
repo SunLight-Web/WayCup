@@ -20,10 +20,14 @@ class menu_item {
 	}
 
 	function categoryDisplayName(){
-		$mysqli = $GLOBALS['mysqli'];
-		$query = 'SELECT `name` FROM `menuCategories` WHERE id =' . $this->category;
-		$stmt = $mysqli->query($query);
-		return $stmt->fetch_assoc();
+		if ($this->category != 0){
+			$mysqli = $GLOBALS['mysqli'];
+			$query = 'SELECT `name` FROM `menuCategories` WHERE id =' . $this->category;
+			$stmt = $mysqli->query($query);
+			return $stmt->fetch_assoc();
+		} else {
+			return array('name' => "Нет категории");
+		}
 	}
 
 	function showAsLI(){
