@@ -42,10 +42,12 @@ class menu_item {
 
 
 	function showAsRow(){
+		// AHEM!
+		$catName = $this->categoryDisplayName();
 		         echo "<tr>";
                   echo "<td>" . $this->name . ' ' . $this->amount . $this->isLiquid .  "</td>";
                   echo "<td>" . $this->price . "</td>";
-                  echo "<td>" . $this->categoryDisplayName()['name'] . "</td>";
+                  echo "<td>" . $catName['name'] . "</td>";
                   echo "<td><a class='icon-wrench' href='singlePosition.php?id=" . $this->id . "'></a></td>"; 
                 echo "</tr>";
 	}
