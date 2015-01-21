@@ -62,14 +62,8 @@
 
     });
 
-    var categorySeparator = React.createClass({
-        render: function(){
-        }
-    });
     var menuElement = React.createClass({
-
     	clickHandler: function(){
-    	
     		 this.props.onClick(this.props.ref);
     	},
 
@@ -77,7 +71,7 @@
  			var isLiquid;
  			if (this.props.category == '1') {isLiquid = 'мл'} else {isLiquid = 'шт'};
     		return (
-    				<li onTouchEnd={this.clickHandler}>
+    				<li onTouchCancel={this.clickHandler}>
 	    				<span>{this.props.name}</span><strong>{this.props.quanity}</strong>
 	    				<br/>
 						{this.props.amount}{isLiquid} 

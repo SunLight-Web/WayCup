@@ -55,7 +55,8 @@ CREATE TABLE `check` (
 
 CREATE TABLE `menuCategories` (
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`name` 		VARCHAR(50)  NOT NULL,
+	`name` 		VARCHAR(50)  NOT NULL
 
 ) ENGINE=InnoDB;
 
+ALTER TABLE `menu` ADD `adsf` VARCHAR() NOT NULL ;
