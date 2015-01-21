@@ -1,4 +1,5 @@
     /** @jsx React.DOM */   
+    React.initializeTouchEvents(true);
         var clientHandler = React.createClass({
 	    	getInitialState: function(){
 	    		return { name: '', coffees: 0, bonuses: 0, cardnum : 0 };
@@ -76,7 +77,7 @@
  			var isLiquid;
  			if (this.props.category == '1') {isLiquid = 'мл'} else {isLiquid = 'шт'};
     		return (
-    				<li onClick={this.clickHandler}>
+    				<li onTouchEnd={this.clickHandler}>
 	    				<span>{this.props.name}</span><strong>{this.props.quanity}</strong>
 	    				<br/>
 						{this.props.amount}{isLiquid} 
