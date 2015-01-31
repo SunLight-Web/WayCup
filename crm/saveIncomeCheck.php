@@ -35,17 +35,18 @@ date_default_timezone_set('Europe/Moscow');
 $timecode = date('Y-m-d H:i:s');
 
 if (!isset($_POST['idset'])) {
-	echo "ЗАКАЗ ПУСТОЙ, ИДИ НАХУЙ!";
+	echo "ЗАКАЗ ПУСТОЙ";
 } else {
 	$idset = $_POST['idset'];
+	$baristaId = $_POST['barista'];
 	$idset = $mysqli->real_escape_string($idset);
-	$query  = "INSERT INTO `check` VALUES (0, '$clientID', '$idset', '$cash', '$timecode')";
+	$query  = "INSERT INTO `check` VALUES (0, '$baristaId', '$clientID', '$idset', '$cash', '$timecode')";
 	$query1 = "UPDATE `clients` SET `coffees` = '$newCoffees' WHERE `id` = '$clientID'"; 
 	//Execute query
 	if (($qry_result = $mysqli->query($query)) && ($qry1_result = $mysqli->query($query1))){
-		echo 'Заебись! Схоронил чек по карте #' . $cardnum;
+		echo 'Отлично! Схоронил чек по карте #' . $cardnum;
 	} else {
-		echo 'Всё очень хуёво. Очень хуёво.';
+		echo 'Всё очень плохо. Очень плохо.';
 	}
 }
 $mysqli->close();

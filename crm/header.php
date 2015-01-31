@@ -37,7 +37,7 @@ wcp_session_start();
   <body>
    <div class="container header-crm">
      <div class="row">
-      <div class="span4"><a href="../index.php" class="logo-head"></a></div>
+      <div class="span4"><a href="../admin.php" class="logo-head"></a></div>
       <div class="span4">
         <div class="time">
           <h2>
@@ -45,7 +45,7 @@ wcp_session_start();
             /* Установка русской локали */
             setlocale(LC_ALL, 'rus');
             date_default_timezone_set('Europe/Moscow');
-            echo strftime("%A, %B, %d", time());
+            echo mb_convert_encoding(strftime("%A, %B, %d", time()), "UTF-8", "Windows-1251");
             ?>
         </h2>
           <span><?php echo date("H:i");; ?></span>
@@ -53,8 +53,13 @@ wcp_session_start();
       </div>
       <div class="span4">
         <div class="login-out">
-          <?php echo htmlentities($_SESSION['nicename']); ?><br>
-          <a href="../inc/logout.php">Выйти</a>
+        <?php echo htmlentities($_SESSION['nicename']); ?><br>
+          
+          <ul class="user-block">
+            <li><a href="?page=8">Профиль</a></li>
+            <li><a href="../inc/logout.php">Выйти</a></li>
+          </ul>
+          <input type='hidden' id='barista_id' value=<?php echo $_SESSION['userID']; ?>>
         </div>
       </div>
     </div>

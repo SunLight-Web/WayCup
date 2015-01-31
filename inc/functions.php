@@ -21,7 +21,7 @@ function wcp_session_start() {
 }
 
 function login($username, $password, $mysqli) {
-	if ($stmt = $mysqli->prepare('SELECT id, username, nicename, password, salt
+	if ($stmt = $mysqli->prepare('SELECT id, username, nicename, password, salt, permissions
 								  FROM members 
 								  WHERE username = ?
 								  LIMIT 1')) {
@@ -29,7 +29,7 @@ function login($username, $password, $mysqli) {
 		$stmt->execute();
 		$stmt->store_result();
 
-		$stmt->bind_result($userID, $username, $nicename, $dbPassword, $salt);
+		$stmt->bind_result($userID, $username, $nicename, $dbPassword, $salt, $perms);
 		$stmt->fetch();
 
 		$password = hash('sha512', $password . $salt);
@@ -49,6 +49,7 @@ function login($username, $password, $mysqli) {
 					$_SESSION['username'] = $username;
 					$_SESSION['nicename'] = $nicename;
 					$_SESSION['loginString'] = hash('sha512', $password . $userBrowser);
+					$_SESSION['permissions'] = $perms;
 					return true;
 				} else {
 					$now = time();

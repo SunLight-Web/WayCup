@@ -36,9 +36,8 @@ if (isset($_POST['sent'])){
 		$cardnum = $_POST['cardnum'];
 	}
 
-
-
-	$query   = "UPDATE `clients` SET `lastname` = '$surname', `name` = '$name', `middlename` = '$middlename', `telephone` = '$tele', `email` = '$email' WHERE `card` = '$cardnum'";
+	$date = date('Y-m-d');
+	$query        = "UPDATE `clients` SET `lastname` = '$surname', `name` = '$name', `middlename` = '$middlename', `telephone` = '$tele', `email` = '$email', `client_since` = '$date' WHERE `card` = '$cardnum'";
 	echo "<i>";
 	if ($qry_result = $mysqli->query($query)) {
 		echo 'Клиент успешно добавлен!';

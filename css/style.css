@@ -171,7 +171,10 @@ body{
 	font-size: 16px;
 }
 .table-client table thead td{
-	padding: 15px
+	padding: 15px;
+}
+.table-client table thead td:first-child{
+	padding: 0px;
 }
 .table-client table tbody tr:nth-child(odd){
 	background-color: #eef6e6;
@@ -284,7 +287,11 @@ body{
     -o-user-select: none; 
 	border: none;
 }
-.order button{
+.order-buttons{
+	margin-top: 20px;
+}
+
+.order-buttons button{
 	width: 160px;
 	height: 40px;
 	background-color: #dfd6c5;
@@ -298,9 +305,7 @@ body{
 	border-radius: 7px;
 	
 }
-.order-buttons{
-	margin-top: 20px;
-}
+
 .order button:first-child{
 	margin-left: 0px;
 }
@@ -537,3 +542,43 @@ float: left;
 .empty-table {
 	padding-top: 50px;
 }
+	/* Профиль Выход в header.php */
+.user-block {
+	list-style-type: none;
+	/* TODO */
+}
+
+.div-like-li {
+	padding: 10px;
+	margin-left: 8px;
+	margin-top: 8px;
+	float: left;
+	width: 200px;
+	border: 4px solid #dfd6c5;
+	height: 100px;
+	color: #5a4c41;
+	background-color: #f7f4eb;
+}
+.div-like-li input[type="text"]{
+	font-size: 16px;
+	border: none;
+  	padding: 0 10px;
+  	margin: 0;
+  	width: 140px;
+  	background: none;
+  	box-shadow: none;
+  	border-radius: none;
+}
+.div-like-li input[type="number"]{
+	font-style: italic;
+	font-size: 16px;
+	border: none;
+  	padding: 0 10px;
+  	margin: 50px 0px;
+  	width: 70px;
+  	background: none;
+  	box-shadow: none;
+  	border-radius: none;
+
+}
+

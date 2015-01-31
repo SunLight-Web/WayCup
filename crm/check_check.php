@@ -1,17 +1,16 @@
 <?php
 // Переделать быдлокод: 
 // 1) поменять return of getOrderedList. Вместо массива строк возвращать массив item объектов.
+
 class item {
 	public $id;
 	public $name;
-	public $amount;
-	public $category;
+	public $price;
 	public $quanity;
-	function __construct($id, $name, $amount, $category, $quanity) {
+	function __construct($id, $name, $price, $quanity) {
 		$this->id = $id;
 		$this->name = $name;
-		$this->amount = $amount;
-		$this->category = $category;
+		$this->price = $price;
 		$this->quanity = $quanity;
 	}
 
@@ -20,19 +19,16 @@ class item {
 class item_check {
 	public $id;
 	public $baristaid;
-	public $clientid;
 	public $orderlist;
 	public $cash;
 	public $timecode;
-	public $cups = 0;
 
-	function __construct($id, $baristaid, $clientid, $orderlist, $cash, $timecode) {
+	function __construct($id, $baristaid, $orderlist, $cash, $timecode) {
 		$this->id 				= $id;
 		$this->baristaid		= $baristaid;
-		$this->clientid  		= $clientid;
 		$this->orderlist 		= $orderlist;
 		$this->cash 			= $cash;
-		$this->timecode 		= substr($timecode, 10, strlen($timecode));
+		$this->timecode 		= substr($timecode, 8, strlen($timecode));
 
 		
 	}
@@ -52,78 +48,60 @@ class item_check {
 		
 
 		foreach ($ordered as $value) {
-			$query = "SELECT `id`,`name`,`amount`,`category` FROM `menu` WHERE `id` = " . $value;
+			$query = "SELECT `id`,`name` FROM `rawMaterials` WHERE `id` = " . $value;
 			$stmt  = $mysqli->query($query);
 			$row = $stmt->fetch_assoc();
-			$element = new item($row['id'], $row['name'], $row['amount'], $row['category'], $repeats[$value]);
+			$element = new item($row['id'], $row['name'], 0 ,$repeats[$value]);
 			$string = '';
 
 			$string .= $element->name . ' ';
-
-		// сделать логику для категорий которые кофе++
-			if (($element->category == 1) || ($element->category == 4)) { $string .= $element->amount . 'мл'; $this->cups += 1*$element->quanity;} 
 			$string .= '  x' . $element->quanity;
 			$string .= '<br/>';
 			array_push($preparedStrings, $string);
 
 		}
-		$preparedStrings['strings'] = $preparedStrings;
-		$preparedStrings['cups']    = $this->cups;
+		$preparedStrings = $preparedStrings;
 		return $preparedStrings;
 	}
 
 	function show() {
 	$mysqli = $GLOBALS['mysqli'];
-	$cleintInfo   = $mysqli->query("SELECT `card`, `name`, `lastname` FROM `clients` WHERE `id` = '$this->clientid'");
-	$cleintInfo   = $cleintInfo->fetch_assoc();
-
 	$query 		  = "SELECT `nicename` FROM `members` WHERE `id` = $this->baristaid";
 	$baristaInfo  = $mysqli->query($query);
 	$baristaInfo  = $baristaInfo->fetch_assoc();
 
 
               echo "<tr>";
-              	echo "<td>" . $cleintInfo['card'] . '<br/>' . $cleintInfo['name'] . ' ' . $cleintInfo['lastname'] .   "</td>";
+				echo "<td>" . $baristaInfo['nicename'] . "</td>";
               	echo "<td>";
-
     // foreach for preapred array of orders goes here.
               	$preparedStrings = $this->getOrderedList();
-
-              		foreach ($preparedStrings['strings'] as $string) {
+              		foreach ($preparedStrings as $string) {
               			echo $string;
               		}
-
               	echo "</td>";
               	echo "<td>" . $this->cash . "₽</td>";
               	echo "<td>" . $this->timecode . "</td>";
-              	echo "<td>" . $baristaInfo['nicename'] . "</td>";
-                echo "</tr>";
+              echo "</tr>";
 	}
 }
 
 $checks = array();
-if (isset($_GET['date'])) {
-	$date = $_GET['date'];
-} else {
-	$date = date('Y-m-d');
-}
 
-$today     = date('Ymd', strtotime('+1 days', strtotime($date)));
-$yesterday = date('Ymd', strtotime($date));
+$nextMonth     = date("Ymd", mktime(0, 0, 0, date("m")+1, date("d"),   date("Y")));
+$previousMonth = date("Ymd", mktime(0, 0, 0, date("m")-1, date("d"),   date("Y")));
 
-$query  = "SELECT `id`, `baristaid`, `clientid`, `orderlist`, `cash`, `timecode` FROM `check` WHERE `timecode` BETWEEN '". $yesterday  . "' AND '" . $today . "'	";
+$query  = "SELECT `id`, `baristaid`, `items`, `cash`, `timecode` FROM `expenses` WHERE `timecode` BETWEEN '". $previousMonth  . "' AND '" . $nextMonth . "'	";
 if (!$stmt = $mysqli->query($query)) {
 echo '<h2>Сорян, что-то пошло не так :С</h2>';
 die();
 } else {
     while ($row = $stmt->fetch_assoc()) {
-    	$anElement = new item_check($row['id'], $row['baristaid'], $row['clientid'], $row['orderlist'], $row['cash'], $row['timecode']);
+    	$anElement = new item_check($row['id'], $row['baristaid'], $row['items'], $row['cash'], $row['timecode']);
     	array_push($checks, $anElement);
     }
 
 }
-		$total = 0;
-		$totalMoney = 0;
-		$totalCups = 0;
-
+$totalMoney = 0;
+$oneBigIdSet = '';
 ?>

@@ -1,0 +1,54 @@
+
+/* 31.01.2015 */
+/*
+	We want to prevent out barista from using 
+	some of our functionality. So we create a 
+	column `permissions`. This far we don't 
+	have it structured, so we'd be okay with
+	2 user roles. (true/false)
+
+*/
+
+ALTER TABLE `members`
+ADD `permissions` BOOLEAN NOT NULL
+
+
+
+/*
+	Money we pay the barista:
+*/
+
+ALTER TABLE `members`
+ADD `hourrate` DECIMAL(5,2) NOT NULL
+
+
+
+/*
+	A table for the expenses
+*/
+
+CREATE TABLE `expenses` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`baristaid` INT(11) NOT NULL,
+	`items` varchar(1000) NOT NULL,
+	`cash` decimal(6,2) NOT NULL,
+	`timecode` datetime NOT NULL
+) ENGINE=InnoDB;
+
+/*
+	A table for the items that go in expenses
+*/
+
+
+CREATE TABLE `rawMaterials` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` 		VARCHAR(25)  NOT NULL, 
+	`price` 	DECIMAL(11,2) NOT NULL,
+	`isActive`  BOOLEAN DEFAULT TRUE
+
+
+) ENGINE=InnoDB;
+
+
+
+/* end */

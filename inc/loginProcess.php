@@ -13,7 +13,7 @@ if (isset($_POST['username'], $_POST['p'])) {
 		header('Location: ../crm/');
 	} else {
 		// Fayuol
-		header('Location: ../index.php?error=1');
+		header('Location: ../admin.php?error=1');
 	}
 } else {
 	echo 'Something went terribly wrong.';
